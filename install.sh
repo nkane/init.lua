@@ -18,7 +18,7 @@ else
 fi
 
 echo 'Copying .bashrc'
-#cp $basedir/bash/.bashrc ~
+cp $basedir/bash/.bashrc ~
 
 echo 'Copying .tmux.conf'
 cp $basedir/tmux/.tmux.conf ~
