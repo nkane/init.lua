@@ -1,18 +1,18 @@
 set t_Co=256
 
-set nocampatible
+set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	Plugin 'Vundle\Vundle.vim'
+	Plugin 'Vundle/Vundle.vim'
 	Plugin 'scrooloose/syntastic'	
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'junegunn/vim-github-dashboard'
 	Plugin 'alessandroyorba/despacio'
 	Plugin 'junegunn/vim-easy-align'
-	Plugin 'faith/vim-go'
+	Plugin 'fatih/vim-go'
 	Plugin 'vim-airline/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
