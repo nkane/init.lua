@@ -5,7 +5,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-	Plugin 'Vundle/Vundle.vim'
+	Plugin 'VundleVim/Vundle.vim'
 	Plugin 'scrooloose/syntastic'	
 	Plugin 'tpope/vim-fugitive'
 	Plugin 'airblade/vim-gitgutter'
