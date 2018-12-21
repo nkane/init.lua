@@ -15,6 +15,7 @@ call vundle#begin()
 	Plugin 'fatih/vim-go'
 	Plugin 'vim-airline/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'mtscout6/syntastic-local-eslint.vim'
 call vundle#end()
 
 let g:go_version_warning = 0
@@ -31,8 +32,9 @@ let g:airline#extensions#tabline#enable = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint', 'js-beatify', 'jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_args = ['--fix']
+let g:jsx_ext_required = 0
 "let g:syntastic_debug = 3
 
 set autoread
