@@ -13,7 +13,10 @@ export GOPATH=$HOME/gocode
 export GOROOT="/usr/local/go"
 export GOBIN="$HOME/bin"
 
-alias psqlconsole='psql -U postgres -d aide -p 54323'
+alias ls='ls --color=auto'
+alias ll='ls -aFl'
+
+alias psqlconsole='psql -U postgres'
 alias psqllog='sudo tail -f /var/log/postgresql-10/postgresql-10.log'
 alias psqlstatus='sudo service postgresql-10 status'
 alias psqlstart='sudo service postgresql-10 start'

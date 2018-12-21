@@ -1,0 +1,11 @@
+[user]
+    name = Nick Kane
+    email = nkanedev@gmail.com
+[color]
+    ui = true
+[push]
+    default = simple
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+[core]
+    edit = 'vim'
