@@ -42,3 +42,6 @@ export PS1="\e[92m[\e[35m\u@\h:\e[91m\W\e[92m]\[$(tput sgr0)\]\e[0m\$ "
 #set path
 export PATH=$PATH:$GOROOT/bin:$HOME/.npm-global/bin:$HOME/bin
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
