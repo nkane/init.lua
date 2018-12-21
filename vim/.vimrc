@@ -57,6 +57,7 @@ set backupdir=$HOME/.vim
 set dir=$HOME/.vim
 
 colorscheme despacio
+syntax on
 
 set number
 set tabstop=4
