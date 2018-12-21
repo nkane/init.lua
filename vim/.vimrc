@@ -67,3 +67,4 @@ set cursorline
 set ttyfast
 set lazyredraw
 set re=1
+set hlsearch
