@@ -8,6 +8,17 @@ if [ ! -d  ~/.vim/bundle/Vundle.vim ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
+# install golang and dep
+if command -v go >/dev/null 2>&1; then
+    echo 'Golang installed'
+    echo "Golang version:$(go version)"
+else
+    echo 'Installing golang'
+    golang/install_golang.sh
+    echo 'Installing godep'
+    golang/install_dep.sh
+fi
+
 # install node
 if command -v node >/dev/null 2>&1; then
     echo 'Node installed'

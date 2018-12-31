@@ -1,6 +1,6 @@
 # set version and distro
 VERSION=v11.5.0
-DISTRO=linux-armv7l
+DISTRO=linux-x64
 INSTALL_PATH=~/bin
 
 # example urls
