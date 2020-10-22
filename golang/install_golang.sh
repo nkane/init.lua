@@ -1,5 +1,5 @@
 # set version and distro
-VERSION=1.11.4
+VERSION=1.15.3
 DISTRO=linux-amd64
 INSTALL_PATH=/usr/local
 
