@@ -1,5 +1,5 @@
 # set version and distro
-VERSION=v11.5.0
+VERSION=v12.19.0
 DISTRO=linux-x64
 INSTALL_PATH=~/bin
 
