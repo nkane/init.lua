@@ -1,7 +1,7 @@
 # set version and distro
-VERSION=1.15.3
-DISTRO=linux-amd64
-INSTALL_PATH=/usr/local
+echo "go version: ${VERSION}"
+echo "go distro: ${DISTRO}"
+echo "go install path: ${INSTALL_PATH}"
 
 # example version(s)
 # https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz
