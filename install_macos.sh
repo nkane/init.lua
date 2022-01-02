@@ -2,6 +2,7 @@
 
 export basedir=${0:a:h}
 echo "base directory: ${basedir} ..."
+exit 0
 # check that shell is set to zsh
 [[ $(echo $SHELL) == "/bin/zsh" ]] || { echo >&2 "must be running zsh - running ${SHELL}"; exit 1; } 
 echo "shell is zsh ..."
@@ -19,29 +20,32 @@ echo "brew installing wget, which, locate, vim, clang, curl, and git ..."
 brew install wget which locate vim clang curl git
 # install vundle
 if [ ! -d  ~/.vim/bundle/Vundle.vim ]; then
-	echo 'Installing vim vundle'
+	echo 'installing vim vundle ...'
     	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 export VERSION=1.17.5
 export DISTRO=darwin-amd64
 export INSTALL_PATH=/usr/local
 if command -v go >/dev/null 2>&1; then
- 	echo 'Golang installed ...'
- 	echo "Golang version:$(go version) ..."
+ 	echo 'golang installed ...'
+ 	echo "golang version:$(go version) ..."
 else
-   	echo 'Installing golang ...'
+   	echo 'installing golang ...'
     	golang/install_golang.sh
 fi
 # install nvm 
 export NVM_VERSION=v0.39.1
-echo "Installing nvm version ${NVM_VERSION} ..."
+echo "installing nvm version ${NVM_VERSION} ..."
 js/install_nvm.sh
 
-echo 'Copying .zshrc'
+echo 'copying .zshrc ...'
 cp $basedir/zshrc/.zshrc ~
 
-echo 'Copying .vimrc'
+echo 'copying .vimrc ...'
 cp $basedir/vim/.vimrc ~
 
-echo 'Copying .gitconfig'
+echo 'copying .gitconfig ...'
 cp $basedir/git/.gitconfig ~
+
+echo 'downloading docker ...'
+docker/install_docker.sh

@@ -37,7 +37,6 @@ alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias gg='go get -v -u'
 alias services='service --status-all'
 alias dep-rm='rm -rfv $GOPATH/pkg/dep/sources'
-alias gde='dep ensure -v --vendor-only'
 alias battery='ioreg -w0 -l | grep Capacity | cut -d " " -f 17-50'
 
 complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
@@ -68,6 +67,7 @@ drm()
 }
 
 ZSH_THEME="avit"
+DISABLE_AUTO_TITLE="true"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 30
 plugins=(git)
