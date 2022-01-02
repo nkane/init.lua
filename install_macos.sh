@@ -8,7 +8,7 @@ echo "shell is zsh ..."
 echo "installing oh-my-zsh ..."
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # install brew
-echo "beginning macos development Install ..."
+echo "beginning macos development install ..."
 echo "installing brew ..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "brew updating ..."
