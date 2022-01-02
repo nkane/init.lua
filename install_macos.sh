@@ -2,7 +2,6 @@
 
 export basedir=${0:a:h}
 echo "base directory: ${basedir} ..."
-exit 0
 # check that shell is set to zsh
 [[ $(echo $SHELL) == "/bin/zsh" ]] || { echo >&2 "must be running zsh - running ${SHELL}"; exit 1; } 
 echo "shell is zsh ..."
@@ -16,8 +15,8 @@ echo "brew updating ..."
 brew update
 echo "brew upgrading ..."
 brew upgrade
-echo "brew installing wget, which, locate, vim, clang, curl, and git ..."
-brew install wget which locate vim clang curl git
+echo "brew installing wget, which, locate, vim, clang, curl, pgrep, and git ..."
+brew install wget which locate vim clang curl pgrep git
 # install vundle
 if [ ! -d  ~/.vim/bundle/Vundle.vim ]; then
 	echo 'installing vim vundle ...'
