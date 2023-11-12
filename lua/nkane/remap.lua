@@ -51,6 +51,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/nkane/packer.lua<CR>");
 
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
@@ -65,5 +66,3 @@ vim.keymap.set('n', '<C-k>', "<cmd>lua require'luasnip'.jump(-1)<CR>")
 vim.keymap.set('n', '<leader>o', 'o<Esc>')
 
 vim.keymap.set('n', '<C-i>', 'i<CR><ESC>')
-
-vim.keymap.set('n', '<leader>t', '<cmd>TroubleToggle<CR>')

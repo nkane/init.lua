@@ -1,5 +1,6 @@
 require('nkane.set')
 require('nkane.remap')
+require('nkane.cmds')
 
 require('go').setup()
 
