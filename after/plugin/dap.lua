@@ -52,7 +52,7 @@ table.insert(dap.configurations.python, {
 require("dap-vscode-js").setup({
   -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
   --debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
-  -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+  --debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
   adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
   -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
   -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
@@ -88,8 +88,22 @@ for _, language in ipairs({ "typescript", "javascript" }) do
           cwd = "${workspaceFolder}",
           console = "integratedTerminal",
           internalConsoleOptions = "neverOpen",
-      }
-  }
+      },
+      {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch Test Current File (pwa-node with jest)',
+          cwd = vim.fn.getcwd(),
+          runtimeArgs = { '${workspaceFolder}/node_modules/.bin/jest' },
+          runtimeExecutable = 'node',
+          args = { '${file}', '--coverage', 'false'},
+          rootPath = '${workspaceFolder}',
+          sourceMaps = true,
+          console = 'integratedTerminal',
+          internalConsoleOptions = 'neverOpen',
+          skipFiles = { '<node_internals>/**', 'node_modules/**' },
+      },
+}
 end
 
 vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
