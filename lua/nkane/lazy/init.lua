@@ -4,7 +4,10 @@ return {
         name = 'plenary'
     },
     {
-        'nvim-treesitter/playground'
+        'tpope/vim-fugitive',
+        config = function()
+            vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+        end
     },
     {
         'mbbill/undotree',
@@ -13,85 +16,21 @@ return {
         end
     },
     {
-        'tpope/vim-fugitive',
+        'nvim-tree/nvim-web-devicons'
+    },
+    {
+        'folke/trouble.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        }
+    },
+    {
+        'nvim-treesitter/playground'
+    },
+    {
+        'lewis6991/gitsigns.nvim',
         config = function()
-            vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-        end
-    },
-    {
-        'hrsh7th/nvim-cmp'
-    },
-    {
-        'tpope/vim-fugitive'
-    },
-    {
-        'hrsh7th/nvim-cmp'
-    },
-    {
-        'hrsh7th/cmp-nvim-lsp'
-    },
-    {
-        'neovim/nvim-lspconfig'
-    },
-    {
-        'williamboman/mason.nvim'
-    },
-    {
-        'williamboman/mason-lspconfig.nvim'
-    },
-    {
-        'hrsh7th/cmp-nvim-lsp'
-    },
-    { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
-    { 'hrsh7th/nvim-cmp' },
-    { 'hrsh7th/cmp-buffer' },
-    { 'hrsh7th/cmp-path' },
-    {
-        'saadparwaiz1/cmp_luasnip',
-        config = function()
-            require('luasnip.loaders.from_vscode').lazy_load()
-        end
-    },
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/cmp-nvim-lua' },
-    { 'L3MON4D3/LuaSnip' },
-    { 'rafamadriz/friendly-snippets' },
-    {
-        'fatih/vim-go',
-        config = function()
-            require('go').setup({})
-        end
-    },
-    { 'ray-x/guihua.lua' },
-    { 'nvim-treesitter/nvim-treesitter' },
-    {
-        'ray-x/go.nvim',
-    },
-    {
-        'crusj/structrue-go.nvim',
-        branch = 'main',
-        config = function()
-            require('structrue-go').setup()
-        end
-    },
-    {
-        'crusj/hierarchy-tree-go',
-        config = function()
-            require('hierarchy-tree-go').setup({})
-        end
-    },
-    { 'ray-x/guihua.lua' },
-    { 'mxsdev/nvim-dap-vscode-js'},
-    { 'leoluz/nvim-dap-go' },
-    { 'mfussenegger/nvim-dap-python' },
-    {
-        'rcarriga/nvim-dap-ui',
-        requires = { 'mfussenegger/nvim-dap' },
-        config = function()
-            require('dapui').setup({});
-            vim.keymap.set('n', '<F8>', require 'dapui'.toggle)
-            vim.keymap.set('i', '<F8>', require 'dapui'.toggle)
+            require('gitsigns').setup()
         end
     },
     {
@@ -107,40 +46,34 @@ return {
             })
         end
     },
-    { 'folke/neodev.nvim' },
     {
-        'theHamsta/nvim-dap-virtual-text',
-        config = function()
-            require('nvim-dap-virtual-text').setup()
-        end
-    },
-    { 'eandrju/cellular-automaton.nvim' },
-    {
-        'ray-x/lsp_signature.nvim',
-        config = function()
-            require('lsp_signature').setup({})
-        end
+        'tpope/vim-dadbod'
     },
     {
-        'lewis6991/gitsigns.nvim',
-        config = function()
-            require('gitsigns').setup()
-        end
+        'kristijanhusak/vim-dadbod-ui'
     },
     {
         'sindrets/diffview.nvim',
-        requires = 'nvim-lua/plenary.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
         config = function()
             require('diffview').setup({})
         end
     },
-    { 'raimondi/delimitMate' },
+    {
+        'raimondi/delimitMate'
+    },
+    {
+        'saadparwaiz1/cmp_luasnip',
+        config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+        end
+    },
+    {
+        'rafamadriz/friendly-snippets'
+    },
     { 'hrsh7th/nvim-compe' },
-    { 'tpope/vim-dadbod' },
-    { 'kristijanhusak/vim-dadbod-ui' },
-    { 'kdheepak/lazygit.nvim' },
-    { 'nvim-tree/nvim-web-devicons' },
-    { 'folke/trouble.nvim' },
     { 'hrsh7th/vim-vsnip' },
     { 'hrsh7th/vim-vsnip-integ' },
     {
@@ -148,10 +81,5 @@ return {
         requires = {
             'rafamadriz/friendly-snippets'
         }
-    },
-    {
-        'microsoft/vscode-js-debug',
-        opt = true,
-        run = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out'
     }
 }
