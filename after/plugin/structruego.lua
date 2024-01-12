@@ -1,1 +1,0 @@
-require('structrue-go').setup()
