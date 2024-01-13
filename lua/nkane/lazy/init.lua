@@ -73,13 +73,13 @@ return {
     {
         'rafamadriz/friendly-snippets'
     },
-    { 'hrsh7th/nvim-compe' },
-    { 'hrsh7th/vim-vsnip' },
-    { 'hrsh7th/vim-vsnip-integ' },
     {
-        'L3MON4D3/LuaSnip',
-        requires = {
-            'rafamadriz/friendly-snippets'
-        }
+        'hrsh7th/nvim-compe'
+    },
+    {
+        'hrsh7th/vim-vsnip'
+    },
+    {
+        'hrsh7th/vim-vsnip-integ'
     }
 }

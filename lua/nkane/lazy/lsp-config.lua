@@ -4,11 +4,15 @@ return {
         config = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require('lspconfig')
+            local util = require('lspconfig/util')
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
             lspconfig.gopls.setup({
                 capabilities = capabilities,
+                cmd = { 'gopls' },
+                filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+                root_dir = util.root_pattern('go.work', 'go.mod', '.git')
             })
             lspconfig.pylsp.setup({
                 capabilities = capabilities,
@@ -21,17 +25,18 @@ return {
                 }
             )
 
+            --vim.keymap.set('n', 'gD', vim.lsp.buf.definition, {})
+            --vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', '<leader>vrr', vim.lsp.buf.references, {})
             vim.keymap.set('n', '<leader>vws', vim.lsp.buf.workspace_symbol, {})
             vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, {})
-            vim.keymap.set('n', '<leader>vf', vim.diagnostic.open_float)
+            --vim.keymap.set('n', '<leader>vf', vim.diagnostic.open_float, {})
             vim.keymap.set('n', '[d', vim.diagnostic.goto_next, {})
             vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, {})
             vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, {})
             vim.keymap.set('n', '<leader>vhh', vim.lsp.buf.signature_help, {})
-            vim.keymap.set('i', '<leader>vhh', vim.lsp.buf.signature_help, {})
         end
     },
     {
