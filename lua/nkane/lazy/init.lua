@@ -42,7 +42,7 @@ return {
                 ['account'] = '',
                 -- Or by name to hexadecimal/decimal value
                 ['comment'] = 0xEA6B, -- hexadecimal
-                ['archive'] = 60056, -- decimal
+                ['archive'] = 60056,  -- decimal
             })
         end
     },
@@ -62,9 +62,6 @@ return {
         end
     },
     {
-        'raimondi/delimitMate'
-    },
-    {
         'saadparwaiz1/cmp_luasnip',
         config = function()
             require('luasnip.loaders.from_vscode').lazy_load()
@@ -81,5 +78,18 @@ return {
     },
     {
         'hrsh7th/vim-vsnip-integ'
+    },
+    {
+        "windwp/nvim-autopairs",
+        opts = {
+            fast_wrap = {},
+            disable_filetype = { "TelescopePrompt", "vim" },
+        },
+        config = function(_, opts)
+            require("nvim-autopairs").setup(opts)
+            -- setup cmp for autopairs
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end
     }
 }
