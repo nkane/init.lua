@@ -14,12 +14,6 @@ return {
         build = ':lua require("go.install").update_all_sync()'
     },
     {
-        'fatih/vim-go',
-        config = function()
-            require('go').setup()
-        end
-    },
-    {
         'crusj/structrue-go.nvim',
         branch = 'main',
         config = function()
