@@ -5,17 +5,25 @@ return {
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
             local lspconfig = require('lspconfig')
             local util = require('lspconfig/util')
+
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
+
             lspconfig.gopls.setup({
                 capabilities = capabilities,
                 cmd = { 'gopls' },
                 filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
                 root_dir = util.root_pattern('go.work', 'go.mod', '.git')
             })
+
             lspconfig.pylsp.setup({
                 capabilities = capabilities,
+            })
+
+            lspconfig.marksman.setup({
+                capabilities = capabilities,
+                filetypes = { 'md', 'markdown' },
             })
 
             vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
