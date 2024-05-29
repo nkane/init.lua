@@ -17,6 +17,18 @@ return {
                 root_dir = util.root_pattern('go.work', 'go.mod', '.git')
             })
 
+            lspconfig.tsserver.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.eslint.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.tailwindcss.setup({
+                capabilities = capabilities,
+            })
+
             lspconfig.pylsp.setup({
                 capabilities = capabilities,
             })
