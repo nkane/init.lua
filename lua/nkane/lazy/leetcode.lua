@@ -2,7 +2,6 @@ return {
     {
         "kawre/leetcode.nvim",
         build = ":TSUpdate html",
-        lang = "golang",
         dependencies = {
             "nvim-telescope/telescope.nvim",
             "nvim-lua/plenary.nvim", -- required by telescope
@@ -15,6 +14,7 @@ return {
         },
         opts = {
             -- configuration goes here
+            lang = "golang"
         },
     },
 }
