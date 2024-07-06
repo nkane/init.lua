@@ -14,7 +14,12 @@ return {
         },
         opts = {
             -- configuration goes here
-            lang = "golang"
+            lang = "golang",
+            injector = {
+                ["golang"] = {
+                    before = "package leetcode"
+                }
+            }
         },
     },
 }
