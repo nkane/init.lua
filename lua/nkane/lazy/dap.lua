@@ -42,7 +42,8 @@ return {
                 },
             }
 
-            require("dap-go").setup({
+            local dap_go = require("dap-go")
+            dap_go.setup({
                 -- Additional dap configurations can be added.
                 -- dap_configurations accepts a list of tables where each entry
                 -- represents a dap configuration. For more details do:
@@ -53,8 +54,10 @@ return {
                         name = "Debug (Judge Dev Mode)",
                         request = "launch",
                         program = "${file}",
-                        args = { "serve", "--enable-workflows=false", "--dev-mode=true" },
-                        buildFlags = { "-tags dev" },
+                        args = dap_go.get_arguments,
+                        buildFlags = dap_go.get_build_flags,
+                        --args = { "serve", "--enable-workflows=false", "--dev-mode=true" },
+                        --buildFlags = { "-tags dev" },
                     },
                 },
                 -- delve configurations
@@ -87,7 +90,7 @@ return {
                     cwd = nil,
                 },
             })
-            vim.keymap.set("n", "<leader><F6>", require("dap-go").debug_test)
+            vim.keymap.set("n", "<leader><F6>", dap_go.debug_test)
 
             require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
             table.insert(dap.configurations.python, {
@@ -195,8 +198,8 @@ return {
     },
     {
         --"leoluz/nvim-dap-go",
-        'nkane/nvim-dap-go',
-        branch = 'feat/add-dap-build-flag-opt',
+        "nkane/nvim-dap-go",
+        branch = "feat/add-dap-build-flag-opt",
     },
     {
         "mxsdev/nvim-dap-vscode-js",
