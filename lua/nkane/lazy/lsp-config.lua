@@ -46,17 +46,34 @@ return {
 
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
+				filetypes = {
+					"html",
+					"typescriptreact",
+					"javascriptreact",
+					"css",
+					"sass",
+					"scss",
+					"less",
+					"tsx",
+					"jsx",
+					"typescript",
+					"javascript",
+				},
 			})
 
-			-- lspconfig.eslint.setup({
-			--     capabilities = capabilities,
-			-- })
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+			})
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
 
 			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
 
