@@ -61,9 +61,20 @@ return {
 				},
 			})
 
+<<<<<<< Updated upstream
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
+=======
+			lspconfig.mdx_analyzer.setup({
+				capabilities = capabilities,
+				filetypes = { "mdx" }
+			})
+
+			-- lspconfig.eslint.setup({
+			--     capabilities = capabilities,
+			-- })
+>>>>>>> Stashed changes
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
