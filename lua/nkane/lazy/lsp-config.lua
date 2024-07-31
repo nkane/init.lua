@@ -61,20 +61,14 @@ return {
 				},
 			})
 
-<<<<<<< Updated upstream
 			lspconfig.eslint.setup({
 				capabilities = capabilities,
 			})
-=======
+
 			lspconfig.mdx_analyzer.setup({
 				capabilities = capabilities,
-				filetypes = { "mdx" }
+				filetypes = { "mdx" },
 			})
-
-			-- lspconfig.eslint.setup({
-			--     capabilities = capabilities,
-			-- })
->>>>>>> Stashed changes
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
@@ -113,6 +107,7 @@ return {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("lsp_signature").setup({})
 		end,
