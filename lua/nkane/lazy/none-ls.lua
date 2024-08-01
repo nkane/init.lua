@@ -66,6 +66,13 @@ return {
 					end
 				end,
 			})
+			-- Run `go mod tidy` after saving Go files
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				pattern = "*.go",
+				callback = function()
+					vim.fn.system("go mod tidy")
+				end,
+			})
 			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 		end,
 	},
