@@ -49,8 +49,8 @@ return {
 					null_ls.builtins.formatting.gofumpt,
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.prettier,
-					--require("none-ls.code_actions.eslint"),
-					-- require("none-ls.formatting.jq"),
+					require("none-ls.code_actions.eslint"),
+					require("none-ls.formatting.jq"),
 				},
 				debug = true,
 				on_attach = function(client, bufnr)
@@ -64,6 +64,13 @@ return {
 							end,
 						})
 					end
+				end,
+			})
+			-- Run `go mod tidy` after saving Go files
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				pattern = "*.go",
+				callback = function()
+					vim.fn.system("go mod tidy")
 				end,
 			})
 			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

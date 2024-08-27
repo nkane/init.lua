@@ -46,17 +46,39 @@ return {
 
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
+				filetypes = {
+					"html",
+					"typescriptreact",
+					"javascriptreact",
+					"css",
+					"sass",
+					"scss",
+					"less",
+					"tsx",
+					"jsx",
+					"typescript",
+					"javascript",
+				},
 			})
 
-			-- lspconfig.eslint.setup({
-			--     capabilities = capabilities,
-			-- })
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.mdx_analyzer.setup({
+				capabilities = capabilities,
+				filetypes = { "mdx" },
+			})
 
 			lspconfig.tailwindcss.setup({
 				capabilities = capabilities,
 			})
 
 			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.html.setup({
 				capabilities = capabilities,
 			})
 
@@ -85,6 +107,7 @@ return {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
 		config = function()
 			require("lsp_signature").setup({})
 		end,
